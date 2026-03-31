@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Planner (RAG)</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Background Image (same as login) */
+            background-image: url('https://d1yl9c4nfqegdk.cloudfront.net/wp-content/uploads/2020/12/btms-edm-06-1-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+        }
+
+        /* Dark overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(2px);
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 35px 40px;
+            border-radius: 18px;
+            width: 460px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            margin-bottom: 18px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #4c6ef5;
+            box-shadow: 0 0 5px rgba(76,110,245,0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4c6ef5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #364fc7;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">Study Planner Assistant</div>
+        <div class="subtitle">RAG-powered Smart Schedule Generator 📚</div>
+
+        <form method="POST">
+            <label>Select Date</label>
+            <input type="date" name="date" required>
+
+            <label>Study Hours</label>
+            <input type="number" name="hours" min="1" placeholder="e.g., 3" required>
+
+            <label>Subject / Topic</label>
+            <input type="text" name="subject" placeholder="e.g., Dynamic Programming" required>
+
+            <button type="submit">Generate Plan</button>
+        </form>
+
+        <p class="footer-note">
+            Your custom study plan will be generated using RAG-based AI.
+        </p>
+    </div>
+
+</body>
+</html>

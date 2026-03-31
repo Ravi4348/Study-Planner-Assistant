@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Study Plan</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Same background image as login & home */
+            background-image: url('https://image-tc.galaxy.tf/wijpeg-7eacs92jhacpkfm7jg7qu74uj/diary-planning_wide.jpg?crop=0%2C52%2C1000%2C563');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+        }
+
+        /* Dark overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(2px);
+            z-index: 0;
+        }
+
+        .plan-container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 30px 35px;
+            border-radius: 18px;
+            width: 600px;
+            max-height: 80vh;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            animation: fadeIn 0.7s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+        .plan-box {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 15px 18px;
+            border: 1px solid #e0e4ff;
+            overflow-y: auto;
+            white-space: pre-wrap; /* so {{ plan }} wraps nicely */
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .buttons {
+            margin-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        a.button-link, button {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        a.button-link {
+            background: #4c6ef5;
+            color: #fff;
+        }
+
+        a.button-link:hover {
+            background: #364fc7;
+        }
+
+        .secondary-btn {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .secondary-btn:hover {
+            background: #dde2e6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="plan-container">
+        <h1>Your Personalized Study Plan</h1>
+        <div class="subtitle">
+            Organized timeline for your selected date, hours, and subject. ✨
+        </div>
+
+        <div class="plan-box">
+            {{ plan }}
+        </div>
+
+        <div class="buttons">
+            <a href="/" class="button-link">Generate Another Plan</a>
+            <!-- Optional: Back to login or dashboard -->
+            <!-- <a href="/logout" class="button-link secondary-btn">Logout</a> -->
+            <button type="button" class="secondary-btn" onclick="window.print()">Download / Print</button>
+        </div>
+    </div>
+
+</body>
+</html>
